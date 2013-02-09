@@ -1,0 +1,96 @@
+# test
+v 1.0
+e 0
+d a:i9 b:i9 c:i9
+d res1:i9 res2:i9 res3:i9 res4:i9 res5:i9 res6:i9 res7:i9 res8:i9
+d res9:i9 res10:i9 res11:i9 res12:i9 res13:i9
+d pred1:i1 pred2:i1 pred3:i1 pred4:i1 pred5:i1 pred6:i1
+d pred7:i1 pred8:i1 pred9:i1 pred10:i1
+d cond:i1 shift:i8 trres:i6 extres:i12
+d argcat:i5 catres:i14 extractres:i6
+d a1:i1 b1:i1 c1:i1
+# constraints
+c res1 & a b
+c 123:i9 & a b
+c 32:i9 & a 46:i9
+c res2 | a b
+c 123:i9 | a b
+c 32:i9 | 46:i9 b
+c res3 ^ a b
+c 123:i9 ^ a b
+c 327:i9 ^ 16:i9 b
+c res4 ~ a
+c 12:i9 ~ a
+c res4 ~ 87:i9
+c pred1 = a b
+c 1:i1 = a b
+c pred1 = 73:i9 b
+c pred2 /= a b
+c 0:i1 /= a b
+c pred2 /= 174:i9 b
+c pred3 slt a b
+c 0:i1 slt a b
+c pred3 slt 89:i9 b
+c pred4 sle a b
+c pred5 sgt a b
+c pred6 sge a b
+c pred7 ult a b
+c pred8 ule a b
+c pred9 ugt a b
+c pred10 uge a b
+c res5 ite cond a b
+c 32:i9 ite 1:i1 a b
+c res5 ite cond 389:i9 431:i9
+c res6 + a b
+c 473:i9 + a b
+c 362:i9 + a 79:i9
+c res7 - a b
+c 411:i9 - a b
+c 176:i9 - 79:i9 a
+c res8 * a b
+c res9 /s a b
+c res10 /u a b
+c res9 %s a b
+c res10 %u a b
+c res11 << a shift
+c 76:i9 << a 27:i8
+c res11 << 259:i9 shift
+c res12 >>l a shift
+c 76:i9 >>l a 27:i8
+c res12 >>l 259:i9 shift
+c res13 >>a a shift
+c trres trun a
+c 61:i6 trun a
+c trres trun 21671:i16
+c extres sext a
+c 324:i16 sext a
+c extres zext a
+c 324:i16 zext a
+c catres conc a argcat
+c extractres extr a 2:i8 8:i8
+c 42:i6 extr 3254:i12 2:i8 8:i8
+p = a b
+p = a 477:i9
+p /= a b
+p /= 411:i9 b
+p slt a b
+p sle a b
+p sgt a b
+p sge a b
+p ult a b
+p ult 655:i9 b
+p ule a b
+p ugt a b
+p uge a b
+p ite cond a1 b1
+p ite cond 1:i1 0:i1
+p & a1 b1
+p & a1 1:i1
+p | a1 b1
+p ^ a1 b1
+p ~ a1
+p ~ 0:i1
+c c1 => a1 b1
+c c1 => a1 1:i1
+p => a1 b1
+p => a1 1:i1

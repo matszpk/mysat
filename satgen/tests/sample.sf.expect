@@ -1,0 +1,95 @@
+a 9 b 9 c 9
+res1 9 res2 9 res3 9 res4 9 res5 9 res6 9 res7 9 res8 9
+res9 9 res10 9 res11 9 res12 9 res13 9
+pred1 1 pred2 1 pred3 1 pred4 1 pred5 1 pred6 1
+pred7 1 pred8 1 pred9 1 pred10 1
+cond 1
+shift 8
+trres 6 extres 12
+argcat 5 catres 14 extractres 6
+a1 1 b1 1 c1 1
+:
+c v res1 & v a v b n
+c c 123 9 & v a v b n
+c c 32 9 & v a c 46 9 n
+c v res2 | v a v b n
+c c 123 9 | v a v b n
+c c 32 9 | c 46 9 v b n
+c v res3 ^ v a v b n
+c c 123 9 ^ v a v b n
+c c 327 9 ^ c 16 9 v b n
+c v res4 ~ v a n n
+c c 12 9 ~ v a n n
+c v res4 ~ c 87 9 n n
+c v pred1 = v a v b n
+c c 1 1 = v a v b n
+c v pred1 = c 73 9 v b n
+c v pred2 /= v a v b n
+c c 0 1 /= v a v b n
+c v pred2 /= c 174 9 v b n
+c v pred3 slt v a v b n
+c c 0 1 slt v a v b n
+c v pred3 slt c 89 9 v b n
+c v pred4 sle v a v b n
+c v pred5 sgt v a v b n
+c v pred6 sge v a v b n
+c v pred7 ult v a v b n
+c v pred8 ule v a v b n
+c v pred9 ugt v a v b n
+c v pred10 uge v a v b n
+c v res5 ite v cond v a v b
+c c 32 9 ite c 1 1 v a v b
+c v res5 ite v cond c 389 9 c 431 9
+c v res6 + v a v b n
+c c 473 9 + v a v b n
+c c 362 9 + v a c 79 9 n
+c v res7 - v a v b n
+c c 411 9 - v a v b n
+c c 176 9 - c 79 9 v a n
+c v res8 * v a v b n
+c v res9 /s v a v b n
+c v res10 /u v a v b n
+c v res9 %s v a v b n
+c v res10 %u v a v b n
+c v res11 << v a v shift n
+c c 76 9 << v a c 27 8 n
+c v res11 << c 259 9 v shift n
+c v res12 >>l v a v shift n
+c c 76 9 >>l v a c 27 8 n
+c v res12 >>l c 259 9 v shift n
+c v res13 >>a v a v shift n
+c v trres trun v a n n
+c c 61 6 trun v a n n
+c v trres trun c 21671 16 n n
+c v extres sext v a n n
+c c 324 16 sext v a n n
+c v extres zext v a n n
+c c 324 16 zext v a n n
+c v catres conc v a v argcat n
+c v extractres extr v a c 2 8 c 8 8
+c c 42 6 extr c 3254 12 c 2 8 c 8 8
+p = v a v b n
+p = v a c 477 9 n
+p /= v a v b n
+p /= c 411 9 v b n
+p slt v a v b n
+p sle v a v b n
+p sgt v a v b n
+p sge v a v b n
+p ult v a v b n
+p ult c 655 9 v b n
+p ule v a v b n
+p ugt v a v b n
+p uge v a v b n
+p ite v cond v a1 v b1
+p ite v cond c 1 1 c 0 1
+p & v a1 v b1 n
+p & v a1 c 1 1 n
+p | v a1 v b1 n
+p ^ v a1 v b1 n
+p ~ v a1 n n
+p ~ c 0 1 n n
+c v c1 => v a1 v b1 n
+c v c1 => v a1 c 1 1 n
+p => v a1 v b1 n
+p => v a1 c 1 1 n

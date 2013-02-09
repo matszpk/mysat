@@ -1,0 +1,56 @@
+OUTMAP FORMAT:
+
+Content: Elements
+Elements: Element [Elements]
+Element: Substitution | '\' | character
+'\': force print next character (for example: '{' or '\').
+Substitution: '{' Conversion ':' Literals '}'
+Conversion: Choices | 'u' | 's' | 'x' | 'o'
+Choices: '{'strings'}'
+strings: string['|'strings]
+string: character|'\' [string]
+Literals: Literal [Literals]
+Literal: signed value excluded '0'
+   (negative value - use negation of variable, positive - use normal value of variable),
+   first literal for 0 bit of value, second for 1 bit, etc. (maximum of literals: 64).
+
+Conversion Types:
+  'u' - decimal unsigned value
+  's' - decimal signed value
+  'x' - hexadecimal value
+  'o' - octal value
+
+Example:
+
+Outmap content:
+p1 = {u:1 2 }
+p3 = {u:3 4 }
+p6 = {u:5 6 }
+p8 = {u:7 8 }
+p9 = {u:9 10 }
+p7 = {u:11 12 }
+p4 = {u:13 14 }
+p2 = {u:15 16 }
+p5 = {u:17 18 }
+
+Dimacs output:
+c Rsat version 2.01
+v -1 -54 53 -52 51 -50 49 -48 47 -46 45 -44 43 -42 41 -40 39 -38 37 -36 35 17 -18 -9 -15 -3 -11 -7 13 5 -14 -6 -19 -33 20 34 -25 -27 26 28 -32 31 -30 29 -24 23 -22 21 -16 2 -4 -12 10 -8 0
+c 
+c 
+s SATISFIABLE
+c CNF stats: (54 vars, 99 clauses)
+c Decisions: 17
+c Conflicts: 0
+c Running time: 0.00400 seconds
+
+Example output:
+p1 = 2
+p3 = 0
+p6 = 1
+p8 = 0
+p9 = 2
+p7 = 0
+p4 = 1
+p2 = 0
+p5 = 1

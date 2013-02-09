@@ -1,0 +1,18 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+ADD_DEFINITIONS(${GLIBMM_CFLAGS})
+LINK_DIRECTORIES(${GLIBMM_LIBRARY_DIRS})
+
+ADD_EXECUTABLE(mysat
+    mysat.cc
+    module.cc
+    modules-table.cc
+    dpll.cc
+    bcp.cc
+    cdcl.cc)
+
+TARGET_LINK_LIBRARIES(mysat ${GLIBMM_LIBRARIES} satutils)
+
+INSTALL(TARGETS mysat
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib)
